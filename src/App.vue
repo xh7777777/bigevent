@@ -1,18 +1,11 @@
 <template>
   <div id="app">
-    <router-link to = '/login'>登录</router-link>
-    <router-link to = '/register'>注册</router-link>
     <router-view></router-view>
   </div>
 </template>
 <script>
-import { registerAPI } from './api'
-
 export default {
-  async created () {
-    const res = await registerAPI()
-    console.log(res)
-  }
+
 }
 </script>
 <style lang="less">
@@ -20,8 +13,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  height: 100%;
 }
 
 nav {
