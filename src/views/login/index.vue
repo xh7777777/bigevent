@@ -26,6 +26,7 @@
 
 <script>
 import { loginAPI } from '@/api'
+import { mapMutations } from 'vuex'
 export default {
   name: 'loginVue',
   data () {
@@ -56,6 +57,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['updateToken']),
     loginSubmit: function () {
       this.$refs.loginForm.validate(async valid => {
         if (!valid) {
@@ -63,9 +65,10 @@ export default {
         } else {
           const { data: res } = await loginAPI(this.loginForm)
           if (res.code !== 0) {
-            return this.$message.error(res.message)
+            this.$message.error(res.message)
           } else {
-            return this.$message.success(res.message)
+            this.$message.success(res.message)
+            this.updateToken(res.token)
           }
         }
       })
