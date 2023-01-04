@@ -4,13 +4,8 @@
   </div>
 </template>
 <script>
-import { getUserInfoAPI } from './api'
 export default {
-  created () {
-    getUserInfoAPI().then(res => {
-      console.log(res)
-    })
-  }
+
 }
 </script>
 <style lang="less">
