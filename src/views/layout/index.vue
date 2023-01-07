@@ -41,12 +41,10 @@
         <el-row class="tac">
           <el-col>
             <el-menu
-              default-active="/home"
+              :default-active="$route.path"
               class="el-menu-vertical-demo"
-              @open="handleOpen"
               background-color="#23262E"
               text-color="#fff"
-              @close="handleClose"
               active-text-color="#409EFF"
               unique-opened
               router
@@ -115,12 +113,6 @@ export default {
           this.$router.push('/login')
         })
         .catch(() => {})
-    },
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
     },
     async getMenu () {
       const { data: res } = await getMenusInfoAPI()
